@@ -25,14 +25,14 @@ void** matrix(
   pointer = new(nothrow) char* [row];
   if (!pointer) {
     cout << "Exception handling: Memory allocation failed";
-    cout << "f o r" << row << "row addresses !" << endl;
+    cout << "for" << row << "row addresses !" << endl;
     return nullptr;
   }
-  i = (row * col * num_bytes) / sizeof(char);
+  i = (int)((row * col * num_bytes) / sizeof(char));
   pointer[0] = new(nothrow) char[i];
   if (!pointer[0]) {
     cout << "Exception handling: Memory allocation failed";
-    cout << "f o ra d d r e s st o" << i << "c h a r a c t e r s! " << endl;
+    cout << "for address to" << i << "characters! " << endl;
     return nullptr;
   }
   ptr = pointer[0];

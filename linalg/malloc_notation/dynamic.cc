@@ -2,11 +2,11 @@
 // Created by fenggeliu on 6/13/20.
 //
 #include <iostream>
-#include "lib.h"
+#include "linalg/lib/lib.h"
 
 using namespace std;
 
-void SubFunction(int row, int col, int* vec, int** matr) {// line d
+void SubFunction(int row, int col, int* vec, int** matrix) {// line d
 
   int k, m;
 
@@ -21,7 +21,7 @@ void SubFunction(int row, int col, int* vec, int** matr) {// line d
   cout << "Content of matrix matr in SubFunction:" << endl;
   for (m = 0; m < row; m++) {
     for (k = 0; k < col; k++) {
-      cout << matr[m][k] << " ";
+      cout << matrix[m][k] << " ";
     }
     cout << endl;
   }
@@ -38,16 +38,16 @@ int main() {
   cout << " Read in number of columns" << endl;
   cin >> col;
   int* vec;
-  int** matr;
+  int** matrix;
 
   vec = new int[col]; //line d
-  matr = (int**)(matrix(row, col, sizeof(int))); // line e
+  matrix = (int**)(::matrix(row, col, sizeof(int))); // line e
   // fill in vector vec
   for (k = 0; k < col; k++) vec[k] = k;
 
-  // fill in matr
+  // fill in matrix
   for (m = 0; m < row; m++) {
-    for (k = 0; k < col; k++) matr[m][k] = m + 10 * k;
+    for (k = 0; k < col; k++) matrix[m][k] = m + 10 * k;
   }
 
   // write out the vector
@@ -58,16 +58,16 @@ int main() {
   cout << endl;
 
   // Then write out the matrix
-  cout << "Content of matrix matr:" << endl;
+  cout << "Content of matrix matrix:" << endl;
   for (m = 0; m < row; m++) {
     for (k = 0; k < col; k++) {
-      cout << matr[m][k] << " ";
+      cout << matrix[m][k] << " ";
     }
     cout << endl;
   }
 
-  SubFunction(row, col, vec, matr); // line f
-  free_matrix(matr); // line g
+  SubFunction(row, col, vec, matrix); // line f
+  free_matrix(matrix); // line g
   delete[] vec;
   return 0;
 } // end main function
