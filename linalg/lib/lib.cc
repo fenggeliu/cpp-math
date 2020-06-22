@@ -2,6 +2,8 @@
 // Created by fenggeliu on 6/20/20.
 //
 #include <iostream>
+#include "linalg/lib/lib.h"
+
 using namespace std;
 /**
  * The function
@@ -28,7 +30,7 @@ void** matrix(
     cout << "for" << row << "row addresses !" << endl;
     return nullptr;
   }
-  i = (int)((row * col * num_bytes) / sizeof(char));
+  i = (int) ((row * col * num_bytes) / sizeof(char));
   pointer[0] = new(nothrow) char[i];
   if (!pointer[0]) {
     cout << "Exception handling: Memory allocation failed";
